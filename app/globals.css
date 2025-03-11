@@ -1,0 +1,313 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 195 70% 95%;
+    --foreground: 195 60% 20%;
+    --card: 0 0% 100%;
+    --card-foreground: 195 60% 20%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 195 60% 20%;
+    --primary: 195 85% 40%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 195 30% 90%;
+    --secondary-foreground: 195 60% 20%;
+    --muted: 195 30% 90%;
+    --muted-foreground: 195 40% 40%;
+    --accent: 195 30% 90%;
+    --accent-foreground: 195 60% 20%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 195 20% 85%;
+    --input: 195 20% 85%;
+    --ring: 195 85% 40%;
+    --radius: 0.5rem;
+    --sidebar-background: 200 60% 97%;
+    --sidebar-foreground: 210 50% 30%;
+    --sidebar-primary: 200 80% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 200 95% 90%;
+    --sidebar-accent-foreground: 200 100% 30%;
+    --sidebar-border: 200 20% 85%;
+    --sidebar-ring: 200 80% 45%;
+  }
+  .dark {
+    --background: 195 50% 10%;
+    --foreground: 195 10% 90%;
+    --card: 195 50% 15%;
+    --card-foreground: 195 10% 90%;
+    --popover: 195 50% 15%;
+    --popover-foreground: 195 10% 90%;
+    --primary: 195 85% 40%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 195 30% 20%;
+    --secondary-foreground: 195 10% 90%;
+    --muted: 195 30% 20%;
+    --muted-foreground: 195 20% 60%;
+    --accent: 195 30% 20%;
+    --accent-foreground: 195 10% 90%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 195 10% 90%;
+    --border: 195 30% 25%;
+    --input: 195 30% 25%;
+    --ring: 195 85% 40%;
+    --chart-1: 210 80% 60%;
+    --chart-2: 173 80% 50%;
+    --chart-3: 130 70% 50%;
+    --chart-4: 43 80% 60%;
+    --chart-5: 330 80% 60%;
+    --sidebar-background: 210 50% 15%;
+    --sidebar-foreground: 210 20% 98%;
+    --sidebar-primary: 210 100% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 50% 30%;
+    --sidebar-accent-foreground: 210 20% 98%;
+    --sidebar-border: 210 30% 25%;
+    --sidebar-ring: 210 100% 60%;
+  }
+}
+
+/* カスタムカラー */
+.bg-soft-blue {
+  background-color: hsl(195, 70%, 92%);
+}
+
+.bg-bright-blue {
+  background-color: hsl(195, 85%, 40%);
+}
+
+.text-bright-blue {
+  color: #0099cc;
+}
+
+.border-soft-blue {
+  border-color: hsl(195, 70%, 85%);
+}
+
+.bg-soft-green {
+  background-color: #e6fff2;
+}
+
+.text-dark-blue {
+  color: hsl(195, 70%, 25%);
+}
+
+.text-soft-black {
+  color: hsl(195, 30%, 30%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "palt";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: 0.08em;
+    word-spacing: 0.15em;
+    line-height: 2;
+    font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', Meiryo, sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight;
+    font-feature-settings: "palt";
+    letter-spacing: 0.05em;
+    word-spacing: 0.12em;
+    line-height: 1.8;
+    margin-bottom: 1em;
+    font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', Meiryo, sans-serif;
+    font-weight: 600;
+  }
+  p {
+    letter-spacing: 0.08em;
+    line-height: 2.2;
+    word-spacing: 0.18em;
+    margin-bottom: 1.5em;
+  }
+  .text-description {
+    letter-spacing: 0.09em;
+    line-height: 2.3;
+    word-spacing: 0.2em;
+  }
+  
+  /* 句読点の後のスペースを調整 */
+  .jp-text {
+    text-justify: inter-character;
+    letter-spacing: 0.04em;
+    line-height: 2;
+    font-feature-settings: "palt";
+  }
+  
+  /* 中黒（・）の前後のスペースを調整 */
+  .jp-text-wide {
+    text-justify: inter-character;
+    letter-spacing: 0.06em;
+    line-height: 2.2;
+    font-feature-settings: "palt";
+  }
+  
+  /* 句読点の周りのスペースを特に広げる */
+  .punctuation-wide {
+    letter-spacing: 0.3em;
+  }
+  
+  /* 中黒（・）を含むテキスト用の特別なスタイル */
+  .middle-dot-text {
+    letter-spacing: 0.2em;
+  }
+  
+  /* 中黒（・）自体のスタイル */
+  .middle-dot {
+    display: inline-block;
+    margin: 0 0.2em;
+    vertical-align: middle;
+  }
+  
+  /* 選択肢やボタンのテキスト */
+  .select-text, button, .badge {
+    letter-spacing: 0.06em;
+    word-spacing: 0.1em;
+  }
+
+  /* カードとコンテンツのスペーシング */
+  .card {
+    --card-padding: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  .card-header {
+    padding: var(--card-padding);
+    border-bottom-color: hsl(195, 70%, 85%);
+  }
+
+  .card-content {
+    padding: var(--card-padding);
+    padding-top: 1.2rem;
+    background-color: white;
+  }
+
+  .card-footer {
+    padding: var(--card-padding);
+    border-top-color: hsl(195, 70%, 85%);
+  }
+
+  /* フォームコントロールのスペーシング */
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .form-label {
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  /* アラートのスペーシング */
+  .alert {
+    padding: 1.2rem;
+    margin-bottom: 1.5rem;
+    border-width: 1px;
+  }
+
+  .alert-title {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+
+  /* リストアイテムのスペーシング */
+  li {
+    margin-bottom: 0.5rem;
+  }
+
+  /* ボタンのスペーシング */
+  button {
+    padding: 0.6rem 1.2rem;
+  }
+  
+  /* 明示的なボタンスタイル */
+  .btn-primary {
+    background-color: hsl(195, 85%, 40%);
+    color: white;
+    transition: all 0.2s ease;
+  }
+  
+  .btn-primary:hover {
+    background-color: hsl(195, 85%, 35%);
+  }
+  
+  .btn-outline {
+    background-color: white;
+    color: hsl(195, 85%, 40%);
+    border-color: hsl(195, 70%, 85%);
+    transition: all 0.2s ease;
+  }
+  
+  .btn-outline:hover {
+    background-color: hsl(195, 70%, 95%);
+  }
+  
+  /* 明示的な入力フィールドスタイル */
+  .input-field {
+    background-color: white !important;
+    border-color: hsl(195, 70%, 85%);
+  }
+  
+  .input-field:focus {
+    border-color: hsl(195, 85%, 40%);
+    box-shadow: 0 0 0 2px hsla(195, 85%, 40%, 0.2);
+  }
+  
+  /* タブスタイル */
+  .tabs-list {
+    background-color: hsl(195, 70%, 92%);
+  }
+  
+  .tab-active {
+    background-color: hsl(195, 85%, 40%);
+    color: white;
+  }
+}
+
+/* アニメーション効果 */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* 印刷スタイル */
+@media print {
+  body {
+    background-color: white !important;
+  }
+  
+  .container {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+  
+  button, .no-print {
+    display: none !important;
+  }
+  
+  .card {
+    box-shadow: none !important;
+    border: 1px solid #eee !important;
+  }
+  
+  .print-only {
+    display: block !important;
+  }
+}
